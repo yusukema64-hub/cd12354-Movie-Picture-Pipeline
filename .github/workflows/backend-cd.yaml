@@ -28,7 +28,7 @@ jobs:
         with:
           path: ~/.local/share/virtualenvs
           key: ${{ runner.os }}-pipenv-${{ hashFiles('starter/backend/Pipfile.lock') }}
-      - run: pipenv install
+      - run: pipenv install --dev
       - run: pipenv run lint
 
   test:
@@ -47,7 +47,7 @@ jobs:
         with:
           path: ~/.local/share/virtualenvs
           key: ${{ runner.os }}-pipenv-${{ hashFiles('starter/backend/Pipfile.lock') }}
-      - run: pipenv install
+      - run: pipenv install --dev
       - run: pipenv run test
 
   build-and-deploy:
